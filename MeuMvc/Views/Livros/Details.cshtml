@@ -1,0 +1,13 @@
+@model Livro
+
+<h1>@Model.Titulo</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Autor</dt>
+    <dd class="col-sm-10">@Model.Autor</dd>
+
+    <dt class="col-sm-2">Ano</dt>
+    <dd class="col-sm-10">@Model.Ano</dd>
+</dl>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

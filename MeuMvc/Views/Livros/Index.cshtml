@@ -1,0 +1,30 @@
+@model List<Livro>
+
+<h1>Livros</h1>
+<a asp-action="Create" class="btn btn-primary mb-3">Novo livro</a>
+
+<form asp-action="Index" method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="text" name="busca" value="@ViewData["Busca"]"
+               class="form-control" placeholder="Título ou autor" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Filtrar</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Limpar</a>
+    </div>
+
+</form>
+
+<table class="table">
+    <thead><tr><th>Título</th><th>Autor</th><th>Ano</th><th>Show</th><th>Editar</th><th>Deletar</th></tr></thead>
+    <tbody>
+    @foreach (var l in Model)
+    {
+        <tr><td>@l.Titulo</td><td>@l.Autor</td><td>@l.Ano</td>
+        <td><a asp-action="Details" asp-route-id="@l.Id">@l.Titulo</a></td>
+        <td><a asp-action="Edit" asp-route-id="@l.Id" class="btn btn-sm btn-outline-primary">Editar</a></td>
+        <td><a asp-action="Delete" asp-route-id="@l.Id" class="btn btn-sm btn-outline-danger">Excluir</a></td>
+    </tr>
+    }
+    </tbody>
+</table>

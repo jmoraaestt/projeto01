@@ -1,0 +1,14 @@
+/home/julia/projeto-net/OlaDotnet/bin/Debug/net10.0/OlaDotnet
+/home/julia/projeto-net/OlaDotnet/bin/Debug/net10.0/OlaDotnet.deps.json
+/home/julia/projeto-net/OlaDotnet/bin/Debug/net10.0/OlaDotnet.runtimeconfig.json
+/home/julia/projeto-net/OlaDotnet/bin/Debug/net10.0/OlaDotnet.dll
+/home/julia/projeto-net/OlaDotnet/bin/Debug/net10.0/OlaDotnet.pdb
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.GeneratedMSBuildEditorConfig.editorconfig
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.AssemblyInfoInputs.cache
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.AssemblyInfo.cs
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.csproj.CoreCompileInputs.cache
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.dll
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/refint/OlaDotnet.dll
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.pdb
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/OlaDotnet.genruntimeconfig.cache
+/home/julia/projeto-net/OlaDotnet/obj/Debug/net10.0/ref/OlaDotnet.dll
