@@ -1,0 +1,15 @@
+/home/julia/projeto-net/Linq/Linq/bin/Debug/net10.0/Linq
+/home/julia/projeto-net/Linq/Linq/bin/Debug/net10.0/Linq.deps.json
+/home/julia/projeto-net/Linq/Linq/bin/Debug/net10.0/Linq.runtimeconfig.json
+/home/julia/projeto-net/Linq/Linq/bin/Debug/net10.0/Linq.dll
+/home/julia/projeto-net/Linq/Linq/bin/Debug/net10.0/Linq.pdb
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.GeneratedMSBuildEditorConfig.editorconfig
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.AssemblyInfoInputs.cache
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.AssemblyInfo.cs
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.csproj.CoreCompileInputs.cache
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.sourcelink.json
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.dll
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/refint/Linq.dll
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.pdb
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/Linq.genruntimeconfig.cache
+/home/julia/projeto-net/Linq/Linq/obj/Debug/net10.0/ref/Linq.dll
