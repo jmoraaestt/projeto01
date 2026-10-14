@@ -211,3 +211,4 @@
 /home/julia/projeto-net/MeuMvc/bin/Debug/net10.0/runtimes/win-x64/native/e_sqlite3.dll
 /home/julia/projeto-net/MeuMvc/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
 /home/julia/projeto-net/MeuMvc/obj/Debug/net10.0/MeuMvc.csproj.Up2Date
+/home/julia/projeto-net/MeuMvc/obj/Debug/net10.0/MeuMvc.sourcelink.json

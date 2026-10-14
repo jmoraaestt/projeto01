@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MeuMvc.Data;
 using MeuMvc.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MeuMvc.Controllers;
 
@@ -15,11 +16,12 @@ public class LivrosController : Controller
     }
     public async Task<IActionResult> Index(string? busca)
     {
-        var query = _context.Livros.AsQueryable(); 
+
+        var query = _context.Livros.Include(l => l.Autor).AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(busca))
         {
-            query = query.Where(l => l.Titulo.Contains(busca) || l.Autor.Contains(busca));
+            query = query.Where(l => l.Titulo.Contains(busca));
         }
 
         ViewData["Busca"] = busca;
@@ -28,8 +30,9 @@ public class LivrosController : Controller
         return View(livros);
     }
 
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+        ViewData["Autores"] = new SelectList(await _context.Autores.ToListAsync(), "Id", "Nome");
         return View();
     }
 
@@ -37,18 +40,26 @@ public class LivrosController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Livro livro)
     {
-        if (!ModelState.IsValid) return View(livro);
+        if (!ModelState.IsValid)
+        {
+            ViewData["Autores"] = new SelectList(await _context.Autores.ToListAsync(), "Id", "Nome");
+            return View(livro);
+        }
 
         _context.Livros.Add(livro);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
+
     }
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null) return NotFound();
 
-        var livro = await _context.Livros.FindAsync(id);
+        var livro = await _context.Livros.Include(l => l.Autor).FirstOrDefaultAsync(l => l.Id == id);
+
         if (livro == null) return NotFound();
+
+         ViewData["Autores"] = new SelectList(await _context.Autores.ToListAsync(), "Id", "Nome");
 
         return View(livro);
     }
@@ -59,6 +70,8 @@ public class LivrosController : Controller
 
         var livro = await _context.Livros.FindAsync(id);
         if (livro == null) return NotFound();
+
+         ViewData["Autores"] = new SelectList(await _context.Autores.ToListAsync(), "Id", "Nome");
 
         return View(livro);
 
@@ -71,7 +84,12 @@ public class LivrosController : Controller
         //if (id != null) return NotFound();
         if (id != livro.Id) return NotFound();
 
-        if (!ModelState.IsValid) return View(livro);
+        if (!ModelState.IsValid)
+        {
+             ViewData["Autores"] = new SelectList(await _context.Autores.ToListAsync(), "Id", "Nome");
+             return View(livro);
+        }
+        
 
         _context.Livros.Update(livro);
 
@@ -79,24 +97,24 @@ public class LivrosController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-        public async Task<IActionResult> Delete(int? id)
+    public async Task<IActionResult> Delete(int? id)
     {
         if (id == null) return NotFound();
 
-        var livro = await _context.Livros.FindAsync(id);
+        var livro = await _context.Livros.Include(l => l.Autor).FirstOrDefaultAsync(l => l.Id == id);
         if (livro == null) return NotFound();
 
         return View(livro);
     }
 
-    
+
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+    public async Task<IActionResult> DeleteConfirmed(int id)
     {
 
         var livro = await _context.Livros.FindAsync(id);
-        if(livro == null) return NotFound();
+        if (livro == null) return NotFound();
 
         _context.Livros.Remove(livro);
         await _context.SaveChangesAsync();

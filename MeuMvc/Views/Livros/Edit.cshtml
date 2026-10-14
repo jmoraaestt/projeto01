@@ -4,17 +4,18 @@
 
 <form asp-action="Edit" method="post">
     <div class="mb-3">
-        <input type="hidden" asp-for="Id" />
-        <label asp-for="Titulo" class="form-label"></label>
-        <input asp-for="Titulo" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label asp-for="Autor" class="form-label"></label>
-        <input asp-for="Autor" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label asp-for="Ano" class="form-label"></label>
-        <input asp-for="Ano" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-success">Salvar</button>
-</form>
+        <label asp-for="AutorId" class="form-label">Autor</label>
+        <select asp-for="AutorId" asp-items="ViewBag.Autores" class="form-select">
+            <option value="">Selecione um autor</option>
+        </select>
+        <div class="mb-3">
+            <input type="hidden" asp-for="Id" />
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ano" class="form-label"></label>
+            <input asp-for="Ano" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </form>

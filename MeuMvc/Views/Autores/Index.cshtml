@@ -1,0 +1,17 @@
+@model List<Autor>
+
+<h1>Livros</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Novo Autor</a>
+
+<table class="table">
+    <thead><tr><th>Id</th><th>Nome</th></tr></thead>
+    <tbody>
+    @foreach (var a in Model)
+    {
+        <tr><td>@a.Id</td><td>@a.Nome</td>
+
+    </tr>
+    }
+    </tbody>
+</table>

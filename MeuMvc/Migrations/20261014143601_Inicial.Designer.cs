@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeuMvc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261013140945_Inicial")]
+    [Migration("20261014143601_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -18,6 +18,21 @@ namespace MeuMvc.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
+
+            modelBuilder.Entity("MeuMvc.Models.Autor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Autores");
+                });
 
             modelBuilder.Entity("MeuMvc.Models.Livro", b =>
                 {
@@ -28,9 +43,8 @@ namespace MeuMvc.Migrations
                     b.Property<int>("Ano")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Autor")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("AutorId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -38,7 +52,25 @@ namespace MeuMvc.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AutorId");
+
                     b.ToTable("Livros");
+                });
+
+            modelBuilder.Entity("MeuMvc.Models.Livro", b =>
+                {
+                    b.HasOne("MeuMvc.Models.Autor", "Autor")
+                        .WithMany("Livros")
+                        .HasForeignKey("AutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Autor");
+                });
+
+            modelBuilder.Entity("MeuMvc.Models.Autor", b =>
+                {
+                    b.Navigation("Livros");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,13 +3,16 @@
 <h1>Novo livro</h1>
 
 <form asp-action="Create" method="post">
+
+     <div class="mb-3">
+    <label asp-for="AutorId" class="form-label">Autor</label>
+    <select asp-for="AutorId" asp-items="ViewBag.Autores" class="form-select">
+        <option value="">Selecione um autor</option>
+    </select>
+    </div>
     <div class="mb-3">
         <label asp-for="Titulo" class="form-label"></label>
         <input asp-for="Titulo" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label asp-for="Autor" class="form-label"></label>
-        <input asp-for="Autor" class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="Ano" class="form-label"></label>
