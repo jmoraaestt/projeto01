@@ -1,15 +1,17 @@
 @model List<Autor>
 
-<h1>Livros</h1>
+<h1>Autores</h1>
 
 <a asp-action="Create" class="btn btn-primary mb-3">Novo Autor</a>
 
 <table class="table">
-    <thead><tr><th>Id</th><th>Nome</th></tr></thead>
+    <thead><tr><th>Id</th><th>Nome</th><th>Editar</th><th>Deletar</th></tr></thead>
     <tbody>
     @foreach (var a in Model)
     {
         <tr><td>@a.Id</td><td>@a.Nome</td>
+        <td><a asp-action="Edit" asp-route-id="@a.Id" class="btn btn-sm btn-outline-primary">Editar</a></td>
+        <td><a asp-action="Delete" asp-route-id="@a.Id" class="btn btn-sm btn-outline-danger">Excluir</a></td>
 
     </tr>
     }
